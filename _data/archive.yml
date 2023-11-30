@@ -1,9 +1,9 @@
 - type: posts
   title: Posts
-  url: /
+  url: /mhuy_notes/
 - type: dates
   title: Dates
-  url: /dates/
+  url: /mhuy_notes/dates/
 - type: tags
   title: Tags
-  url: /tags/
+  url: /mhuy_notes/tags
