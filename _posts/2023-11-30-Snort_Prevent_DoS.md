@@ -3,6 +3,7 @@ layout: post
 title: Snort Detect + Prevent DoS/DDoS
 date: 2023-11-30 14:40:00 +0700
 tags: [snort, dos/ddos]
+url: "/mhuy_notes"
 toc: true
 ---
 
