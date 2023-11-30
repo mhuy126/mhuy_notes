@@ -3,7 +3,7 @@
 title: MHuy
 # email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  This is the place where I post my CTF writeups and some other stuff. Enjoy!
+  All of my notes are here. Feel free to read ^_^
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://mhuy126.github.io/mhuy_notes" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "/mhuy_notes"
