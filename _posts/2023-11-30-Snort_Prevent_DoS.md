@@ -47,10 +47,10 @@ Execute the command multiple times on multiple terminals:
 
 ![Untitled](/mhuy_notes/assets/Snort%20Detect%20and%20Prevent%20DoS_DDoS/Untitled%203.png)
 
-<aside>
-💡 **Slowloris** is not a category of attack but is instead a specific attack tool designed to allow a single machine to take down a server without using a lot of bandwidth. Therefore, in real-life attack, it requires more than 1 machine to perform successfully within this tool.
+<p class="message">
+💡 <strong>Slowloris</strong> is not a category of attack but is instead a specific attack tool designed to allow a single machine to take down a server without using a lot of bandwidth. Therefore, in real-life attack, it requires more than 1 machine to perform successfully within this tool.
 
-</aside>
+</p>
 
 Observe the target http service and verify that it was taken down:
 
