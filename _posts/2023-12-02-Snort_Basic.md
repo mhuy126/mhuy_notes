@@ -168,8 +168,8 @@ sudo sed -i 's/include $RULE_PATH/#include $RULE_PATH/' /etc/snort/snort.conf
 <table>
 <tbody>
   <tr>
-    <th>Action<br></th>
-    <th>There are several actions for rules. Make sure you understand the functionality and test it before creating rules for live systems. The most common actions are listed below.<br>alert: Generate an alert and log the packet.<br>log: Log the packet.<br>drop: Block and log the packet.<br>reject: Block the packet, log it and terminate the packet session. </th>
+    <td>Action<br></td>
+    <td>There are several actions for rules. Make sure you understand the functionality and test it before creating rules for live systems. The most common actions are listed below.<br>alert: Generate an alert and log the packet.<br>log: Log the packet.<br>drop: Block and log the packet.<br>reject: Block the packet, log it and terminate the packet session. </td>
   </tr>
   <tr>
     <td>Protocol<br></td>
@@ -180,28 +180,52 @@ sudo sed -i 's/include $RULE_PATH/#include $RULE_PATH/' /etc/snort/snort.conf
 
 ### IP & Port Numbers
 
-| IP Filtering | alert icmp 192.168.1.56 any <> any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)
-This rule will create alerts for each ICMP packet originating from the 192.168.1.56 IP address. |
-| --- | --- |
-| Filter an IP range | alert icmp 192.168.1.0/24 any <> any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)
-This rule will create alerts for each ICMP packet originating from the 192.168.1.0/24 subnet. |
-| Filter multiple IP ranges | alert icmp [192.168.1.0/24, 10.1.1.0/24] any <> any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)
-This rule will create alerts for each ICMP packet originating from the 192.168.1.0/24 and 10.1.1.0/24 subnets. |
-| Exclude IP addresses/ranges | "negation operator" is used for excluding specific addresses and ports. Negation operator is indicated with "!"
-alert icmp !192.168.1.0/24 any <> any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)
-This rule will create alerts for each ICMP packet not originating from the 192.168.1.0/24 subnet. |
-| Port Filtering | alert tcp !192.168.1.0/24 21 <> any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)
-This rule will create alerts for each TCP packet originating from port 21. |
-| Exclude a specific port | alert tcp !192.168.1.0/24 !21 <> any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)
-This rule will create alerts for each TCP packet not originating from port 21. |
-| Filter a port range (Type 1) | alert tcp !192.168.1.0/24 1:1024 <> any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)
-This rule will create alerts for each TCP packet originating from ports between 1-1024. |
-| Filter a port range (Type 2) | alert icmp any :1024 <> any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)
-This rule will create alerts for each TCP packet originating from ports less than or equal to 1024. |
-| Filter a port range (Type 3) | alert icmp any 1024: <> any any (msg: "ICMP Packet Found"; sid: 100001; rev:1;)
-This rule will create alerts for each TCP packet originating from a source port higher than or equal to 1024. |
-| Filter a port range (Type 4) | alert icmp any 80,1024: <> any any (msg: "ICMP Packet Found"; sid: 100001; rev:1;)
-This rule will create alerts for each TCP packet originating from a source port 80 and higher than or equal to 1024. |
+<table>
+<thead>
+  <tr>
+    <td>IP Filtering</td>
+    <td>alert icmp 192.168.1.56 any &lt;&gt; any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)<br>This rule will create alerts for each ICMP packet originating from the 192.168.1.56 IP address.</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Filter an IP range<br></td>
+    <td>alert icmp 192.168.1.0/24 any &lt;&gt; any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)<br>This rule will create alerts for each ICMP packet originating from the 192.168.1.0/24 subnet.</td>
+  </tr>
+  <tr>
+    <td>Filter multiple IP ranges<br></td>
+    <td>alert icmp [192.168.1.0/24, 10.1.1.0/24] any &lt;&gt; any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)<br>This rule will create alerts for each ICMP packet originating from the 192.168.1.0/24 and 10.1.1.0/24 subnets.</td>
+  </tr>
+  <tr>
+    <td>Exclude IP addresses/ranges<br></td>
+    <td>"negation operator" is used for excluding specific addresses and ports. Negation operator is indicated with "!"<br>alert icmp !192.168.1.0/24 any &lt;&gt; any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)<br>This rule will create alerts for each ICMP packet not originating from the 192.168.1.0/24 subnet.</td>
+  </tr>
+  <tr>
+    <td>Port Filtering</td>
+    <td>alert tcp !192.168.1.0/24 21 &lt;&gt; any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)<br>This rule will create alerts for each TCP packet originating from port 21.</td>
+  </tr>
+  <tr>
+    <td>Exclude a specific port<br></td>
+    <td>alert tcp !192.168.1.0/24 !21 &lt;&gt; any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)<br>This rule will create alerts for each TCP packet not originating from port 21.</td>
+  </tr>
+  <tr>
+    <td>Filter a port range (Type 1)<br></td>
+    <td>alert tcp !192.168.1.0/24 1:1024 &lt;&gt; any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)<br>This rule will create alerts for each TCP packet originating from ports between 1-1024.</td>
+  </tr>
+  <tr>
+    <td>Filter a port range (Type 2)<br></td>
+    <td>alert icmp any :1024 &lt;&gt; any any  (msg: "ICMP Packet Found"; sid: 100001; rev:1;)<br>This rule will create alerts for each TCP packet originating from ports less than or equal to 1024.</td>
+  </tr>
+  <tr>
+    <td>Filter a port range (Type 3)<br></td>
+    <td>alert icmp any 1024: &lt;&gt; any any (msg: "ICMP Packet Found"; sid: 100001; rev:1;)<br>This rule will create alerts for each TCP packet originating from a source port higher than or equal to 1024.</td>
+  </tr>
+  <tr>
+    <td>Filter a port range (Type 4)<br></td>
+    <td>alert icmp any 80,1024: &lt;&gt; any any (msg: "ICMP Packet Found"; sid: 100001; rev:1;)<br>This rule will create alerts for each TCP packet originating from a source port 80 and higher than or equal to 1024.</td>
+  </tr>
+</tbody>
+</table>
 
 ### Direct
 
@@ -210,7 +234,7 @@ The left side of the rule shows the source, and the right side shows the destina
 - **>** Source to destination flow.
 - **<>** Bidirectional flow
 
-<aside>
+<p class="message">
 ❗ Note that **there is no "<-" operator in Snort.**
 
 </aside>
@@ -227,56 +251,74 @@ alert icmp any 80,1024: <> any any (msg: "ICMP Packet Found"; sid: 100001; rev:1
 
 ### General Rule Options
 
-| Msg | The message field is a basic prompt and quick identifier of the rule. Once the rule is triggered, the message filed will appear in the console or log. Usually, the message part is a one-liner that summarizes the event. |
-| --- | --- |
-| Sid | Snort rule IDs (SID) come with a pre-defined scope, and each rule must have a SID in a proper format. There are three different scopes for SIDs shown below.
-
-• <100: Reserved rules
-• 100-999,999: Rules came with the build.
-• >=1,000,000: Rules created by user.
-
-Briefly, the rules we will create should have sid greater than 100.000.000. Another important point is; SIDs should not overlap, and each id must be unique. |
-| Reference | Each rule can have additional information or reference to explain the purpose of the rule or threat pattern. That could be a Common Vulnerabilities and Exposures (CVE) id or external information. Having references for the rules will always help analysts during the alert and incident investigation. |
-| Rev | Snort rules can be modified and updated for performance and efficiency issues. Rev option help analysts to have the revision information of each rule. Therefore, it will be easy to understand rule improvements. Each rule has its unique rev number, and there is no auto-backup feature on the rule history. Analysts should keep the rule history themselves. Rev option is only an indicator of how many times the rule had revisions.
-alert icmp any any <> any any (msg: "ICMP Packet Found"; sid: 100001; reference:cve,CVE-XXXX; rev:1;) |
+<table>
+<thead>
+  <tr>
+    <td>Msg</td>
+    <td>The message field is a basic prompt and quick identifier of the rule. Once the rule is triggered, the message filed will appear in the console or log. Usually, the message part is a one-liner that summarises the event.<br></td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Sid<br></td>
+    <td>Snort rule IDs (SID) come with a pre-defined scope, and each rule must have a SID in a proper format. There are three different scopes for SIDs shown below.<br>&lt;100: Reserved rules<br>100-999,999: Rules came with the build.<br>&gt;=1,000,000: Rules created by user.<br>Briefly, the rules we will create should have sid greater than 100.000.000. Another important point is; SIDs should not overlap, and each id must be unique. </td>
+  </tr>
+  <tr>
+    <td>Reference<br></td>
+    <td>Each rule can have additional information or reference to explain the purpose of the rule or threat pattern. That could be a Common Vulnerabilities and Exposures (CVE) id or external information. Having references for the rules will always help analysts during the alert and incident investigation.<br></td>
+  </tr>
+  <tr>
+    <td>Rev<br></td>
+    <td>Snort rules can be modified and updated for performance and efficiency issues. Rev option help analysts to have the revision information of each rule. Therefore, it will be easy to understand rule improvements. Each rule has its unique rev number, and there is no auto-backup feature on the rule history. Analysts should keep the rule history themselves. Rev option is only an indicator of how many times the rule had revisions.<br>alert icmp any any &lt;&gt; any any (msg: "ICMP Packet Found"; sid: 100001; reference:cve,CVE-XXXX; rev:1;)</td>
+  </tr>
+</tbody>
+</table>
 
 ### Payload Rule Options
 
-| Content | Payload data. It matches specific payload data by ASCII, HEX or both. It is possible to use this option multiple times in a single rule. However, the more you create specific pattern match features, the more it takes time to investigate a packet.
-Following rules will create an alert for each HTTP packet containing the keyword "GET". This rule option is case sensitive!
-
-• ASCII mode - alert tcp any any <> any 80  (msg: "GET Request Found"; content:"GET"; sid: 100001; rev:1;)
-• HEX mode - alert tcp any any <> any 80  (msg: "GET Request Found"; content:"|47 45 54|"; sid: 100001; rev:1;) |
-| --- | --- |
-| Nocase | Disabling case sensitivity. Used for enhancing the content searches.
-alert tcp any any <> any 80  (msg: "GET Request Found"; content:"GET"; nocase; sid: 100001; rev:1;) |
-| Fast_pattern | Prioritise content search to speed up the payload search operation. By default, Snort uses the biggest content and evaluates it against the rules. "fast_pattern" option helps you select the initial packet match with the specific value for further investigation. This option always works case insensitive and can be used once per rule. Note that this option is required when using multiple "content" options. 
-The following rule has two content options, and the fast_pattern option tells to snort to use the first content option (in this case, "GET") for the initial packet match.
-
-alert tcp any any <> any 80  (msg: "GET Request Found"; content:"GET"; fast_pattern; content:"www";  sid:100001; rev:1;) |
+<table>
+<thead>
+  <tr>
+    <td>Content<br></td>
+    <td>Payload data. It matches specific payload data by ASCII, HEX or both. It is possible to use this option multiple times in a single rule. However, the more you create specific pattern match features, the more it takes time to investigate a packet.<br>Following rules will create an alert for each HTTP packet containing the keyword "GET". This rule option is case sensitive!<br>ASCII mode - alert tcp any any &lt;&gt; any 80  (msg: "GET Request Found"; content:"GET"; sid: 100001; rev:1;)<br>HEX mode - alert tcp any any &lt;&gt; any 80  (msg: "GET Request Found"; content:"|47 45 54|"; sid: 100001; rev:1;)</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Nocase<br></td>
+    <td>Disabling case sensitivity. Used for enhancing the content searches.<br>alert tcp any any &lt;&gt; any 80  (msg: "GET Request Found"; content:"GET"; nocase; sid: 100001; rev:1;)</td>
+  </tr>
+  <tr>
+    <td>Fast_pattern<br></td>
+    <td>Prioritise content search to speed up the payload search operation. By default, Snort uses the biggest content and evaluates it against the rules. "fast_pattern" option helps you select the initial packet match with the specific value for further investigation. This option always works case insensitive and can be used once per rule. Note that this option is required when using multiple "content" options. <br>The following rule has two content options, and the fast_pattern option tells to snort to use the first content option (in this case, "GET") for the initial packet match.<br><br>alert tcp any any &lt;&gt; any 80  (msg: "GET Request Found"; content:"GET"; fast_pattern; content:"www";  sid:100001; rev:1;)</td>
+  </tr>
+</tbody>
+</table>
 
 ### Non-Payload Rule Options
 
-| ID | Filtering the IP id field.
-alert tcp any any <> any any (msg: "ID TEST"; id:123456; sid: 100001; rev:1;) |
-| --- | --- |
-| Flags | Filtering the TCP flags.
-• F - FIN
-• S - SYN
-• R - RST
-• P - PSH
-• A - ACK
-• U - URG
-
-alert tcp any any <> any any (msg: "FLAG TEST"; flags:S;  sid: 100001; rev:1;) |
-| Dsize | Filtering the packet payload size.
-• dsize:min<>max;
-• dsize:>100
-• dsize:<100
-
-alert ip any any <> any any (msg: "SEQ TEST"; dsize:100<>300;  sid: 100001; rev:1;) |
-| Sameip | Filtering the source and destination IP addresses for duplication.
-alert ip any any <> any any (msg: "SAME-IP TEST";  sameip; sid: 100001; rev:1;) |
+<table>
+<thead>
+  <tr>
+    <td>ID</td>
+    <td>Filtering the IP id field.<br>alert tcp any any &lt;&gt; any any (msg: "ID TEST"; id:123456; sid: 100001; rev:1;)</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Flags<br></td>
+    <td>Filtering the TCP flags.<br>F - FIN<br>S - SYN<br>R - RST<br>P - PSH<br>A - ACK<br>U - URG<br><br>alert tcp any any &lt;&gt; any any (msg: "FLAG TEST"; flags:S;  sid: 100001; rev:1;)</td>
+  </tr>
+  <tr>
+    <td>Dsize<br></td>
+    <td>Filtering the packet payload size.<br>dsize:min&lt;&gt;max;<br>dsize:&gt;100<br>dsize:&lt;100<br>alert ip any any &lt;&gt; any any (msg: "SEQ TEST"; dsize:100&lt;&gt;300;  sid: 100001; rev:1;)</td>
+  </tr>
+  <tr>
+    <td>Sameip<br></td>
+    <td>Filtering the source and destination IP addresses for duplication.<br>alert ip any any &lt;&gt; any any (msg: "SAME-IP TEST";  sameip; sid: 100001; rev:1;)</td>
+  </tr>
+</tbody>
+</table>
 
 <p class="message">
 ❗ Your created rules must be placed in `local.rules` file
