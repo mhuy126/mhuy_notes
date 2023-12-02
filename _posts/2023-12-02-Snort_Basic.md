@@ -165,6 +165,8 @@ sudo sed -i 's/include $RULE_PATH/#include $RULE_PATH/' /etc/snort/snort.conf
 
 **Rule Header** is essential.
 
+|   |   |
+|---|---|
 | Action | There are several actions for rules. Make sure you understand the functionality and test it before creating rules for live systems. The most common actions are listed below.
 
 • alert: Generate an alert and log the packet.
@@ -275,10 +277,10 @@ alert ip any any <> any any (msg: "SEQ TEST"; dsize:100<>300;  sid: 100001; rev
 | Sameip | Filtering the source and destination IP addresses for duplication.
 alert ip any any <> any any (msg: "SAME-IP TEST";  sameip; sid: 100001; rev:1;) |
 
-<aside>
+<p class="message">
 ❗ Your created rules must be placed in `local.rules` file
 
-</aside>
+</p>
 
 ## References
 
