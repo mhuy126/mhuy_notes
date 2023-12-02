@@ -165,17 +165,18 @@ sudo sed -i 's/include $RULE_PATH/#include $RULE_PATH/' /etc/snort/snort.conf
 
 **Rule Header** is essential.
 
-|   |   |
-|---|---|
-| Action | There are several actions for rules. Make sure you understand the functionality and test it before creating rules for live systems. The most common actions are listed below.
-
-• alert: Generate an alert and log the packet.
-• log: Log the packet.
-• drop: Block and log the packet.
-• reject: Block the packet, log it and terminate the packet session. |
-| Protocol | Protocol parameter identifies the type of the protocol that filtered for the rule.
-
-Note that Snort2 supports only four protocols filters in the rules (IP, TCP, UDP and ICMP). However, you can detect the application flows using port numbers and options. For instance, if you want to detect FTP traffic, you cannot use the FTP keyword in the protocol field but filter the FTP traffic by investigating TCP traffic on port 21. |
+<table>
+<tbody>
+  <tr>
+    <th>Action<br></th>
+    <th>There are several actions for rules. Make sure you understand the functionality and test it before creating rules for live systems. The most common actions are listed below.<br>alert: Generate an alert and log the packet.<br>log: Log the packet.<br>drop: Block and log the packet.<br>reject: Block the packet, log it and terminate the packet session. </th>
+  </tr>
+  <tr>
+    <td>Protocol<br></td>
+    <td>Protocol parameter identifies the type of the protocol that filtered for the rule.<br>Note that Snort2 supports only four protocols filters in the rules (IP, TCP, UDP and ICMP). However, you can detect the application flows using port numbers and options. For instance, if you want to detect FTP traffic, you cannot use the FTP keyword in the protocol field but filter the FTP traffic by investigating TCP traffic on port 21.</td>
+  </tr>
+</tbody>
+</table>
 
 ### IP & Port Numbers
 
