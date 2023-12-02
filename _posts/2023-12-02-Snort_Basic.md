@@ -235,7 +235,7 @@ The left side of the rule shows the source, and the right side shows the destina
 - **<>** Bidirectional flow
 
 <p class="message">
-❗ Note that **there is no "<-" operator in Snort.**
+❗ Note that <strong>there is no "<-" operator in Snort.</strong>
 
 </p>
 
