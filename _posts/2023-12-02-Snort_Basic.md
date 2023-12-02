@@ -237,7 +237,7 @@ The left side of the rule shows the source, and the right side shows the destina
 <p class="message">
 ❗ Note that **there is no "<-" operator in Snort.**
 
-</aside>
+</p>
 
 ```bash
 alert icmp any 80,1024: <> any any (msg: "ICMP Packet Found"; sid: 100001; rev:1;)
