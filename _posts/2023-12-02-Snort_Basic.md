@@ -105,17 +105,36 @@ $ sudo snort -r logname.log -n 10
 
 ## IPS/IDS Mode
 
-| Parameter | Description |
-| --- | --- |
-| -N | Disable logging. |
-| -D | Background mode. |
-| -A | Alert modes;
-full: Full alert mode, providing all possible information about the alert. This one also is the default mode; once you use -A and don't specify any mode, snort uses this mode.
-
-fast:  Fast mode shows the alert message, timestamp, source and destination IP, along with port numbers.
-console: Provides fast style alerts on the console screen.
-cmg: CMG style, basic header details with payload in hex and text format.
-none: Disabling alerting. |
+<table>
+<thead>
+  <tr>
+    <th>Parameter</th>
+    <th>Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>-c</td>
+    <td>Defining the configuration file.</td>
+  </tr>
+  <tr>
+    <td>-T</td>
+    <td>Testing the configuration file.</td>
+  </tr>
+  <tr>
+    <td>-N</td>
+    <td>Disable logging.<br></td>
+  </tr>
+  <tr>
+    <td>-D</td>
+    <td>Background mode.<br></td>
+  </tr>
+  <tr>
+    <td>-A</td>
+    <td>Alert modes;<br><br>full: Full alert mode, providing all possible information about the alert. This one also is the default mode; once you use -A and don't specify any mode, snort uses this mode.<br><br>fast:  Fast mode shows the alert message, timestamp, source and destination IP, along with port numbers.<br>console: Provides fast style alerts on the console screen.<br>cmg: CMG style, basic header details with payload in hex and text format.<br>none: Disabling alerting.</td>
+  </tr>
+</tbody>
+</table>
 
 ```bash
 $ sudo snort -Q --daq afpacket -i eth0:eth1 -c /etc/snort/snort.conf -A full
